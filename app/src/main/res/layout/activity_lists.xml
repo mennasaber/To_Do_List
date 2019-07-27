@@ -9,14 +9,14 @@
     android:layout_height="match_parent"
     tools:context=".ListsActivity">
 
-    <TextView
-        android:textStyle="bold"
-        android:textSize="25dp"
+    <!--Title of track-->
+    <EditText
         android:id="@+id/listTitle"
-        android:layout_width="match_parent"
-        android:text="@string/title"
+        android:hint="Title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <!--ListView of tasks -->
     <ListView
         android:id="@+id/listID"
         android:layout_width="match_parent"
@@ -30,6 +30,7 @@
         android:layout_height="1dp"
         />
 
+    <!--ListView of checked tasks-->
     <ListView
         android:id="@+id/checkedList"
         android:layout_width="match_parent"
