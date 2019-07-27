@@ -7,9 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class DB_helper extends SQLiteOpenHelper {
+public class DB_handler extends SQLiteOpenHelper {
     private static final int _Database_version = 1;
     private static final String _Database_name = "TO_DO_LIST";
     private static final String TABLE_ITEM = "Items";
@@ -34,7 +33,7 @@ public class DB_helper extends SQLiteOpenHelper {
             + "INTEGER PRIMARY KEY AUTOINCREMENT ,"
             + _Name + "TEXT ," + _Checked + "BOOLEAN ,"
             + _Priority + "INTEGER ," + _Time + "TEXT" + _Maintask_id + "INTEGER " + ")";
-    public DB_helper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public DB_handler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, _Database_name, factory, _Database_version);
     }
 
@@ -75,8 +74,8 @@ public class DB_helper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_ITEM, null, values);
         db.close();
-    }
 
+}
     public void update_item(item Item) {
         ContentValues values = new ContentValues();
         values.put(_Maintask_checked, Item.isiChecked());

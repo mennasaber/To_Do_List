@@ -1,15 +1,25 @@
 package com.example.android.todolist;
 
 public class item {
-    String iID; // item id
+    int iID; // item id
     String iname;  // item name
     boolean iChecked; // item statue
 
-    public String getiID() {
+    public item(String iname, boolean iChecked) {
+        this.iname = iname;
+        this.iChecked = iChecked;
+    }
+    public item(int iID,String iname, boolean iChecked) {
+        this.iname = iname;
+        this.iChecked = iChecked;
+        this.iID=iID;
+    }
+
+    public int getiID() {
         return iID;
     }
 
-    public void setiID(String iID) {
+    public void setiID(int iID) {
         this.iID = iID;
     }
 

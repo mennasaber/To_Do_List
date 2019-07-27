@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,11 +24,11 @@ public class taskAdapter extends ArrayAdapter<task> {
                     R.layout.list_item, parent, false);
         }
 
-        item currentItem = getItem(position);
+        task currentItem = getItem(position);
         TextView text = listItemView.findViewById(R.id.taskNameId);
-        text.setText(currentItem.getIname());
+        text.setText(((task) currentItem).getTname());
         LinearLayout layout = listItemView.findViewById(R.id.item_layout);
-        switch (((task) currentItem).getiPriority()) {
+        switch (((task) currentItem).gettPriority()) {
             case 0:
                 layout.setBackgroundResource(R.color.yellow_color);
             case 1:
@@ -35,6 +36,9 @@ public class taskAdapter extends ArrayAdapter<task> {
             case 2:
                 layout.setBackgroundResource(R.color.red_color);
         }
+        CheckBox checkBox = listItemView.findViewById(R.id.checkbox_id);
+        checkBox.setSelected(currentItem.isTchecked());
+
         return listItemView;
     }
 }
